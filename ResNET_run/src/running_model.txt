@@ -1,0 +1,3 @@
+It is recommended to run the model in a compute cluster.
+
+use the run function to run the cluster on the preprocessed dataset. The paths should direct to the outputs of the preprocessing.

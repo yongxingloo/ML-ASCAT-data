@@ -27,8 +27,8 @@ model          = UNET(in_channels, out_channels, filter_size, features)
 
 """  Training  """
 # Load data  
-train_input  = np.load("../../Wind_Northward_Preprocessing/Output/Final_for_run/train_input.npy")
-train_target = np.load("../../Wind_Northward_Preprocessing/Output/Final_for_run/train_target.npy")
+train_input  = np.load("../data_preperation/wind_northward_preperation/Output/Final_for_run/train_input.npy")
+train_target = np.load("../data_preperation/wind_northward_preperation/Output/Final_for_run/train_target.npy")
 
 train_input_bag     = prepare_data(train_input, train_target)
 
@@ -47,8 +47,8 @@ save_model(model, dirs)
 
 """  Inference  """  
 # Load data for inference
-test_input   = np.load("../../Wind_Northward_Preprocessing/Output/Final_for_run/test_input.npy")
-test_target = np.load("../../Wind_Northward_Preprocessing/Output/Final_for_run/test_target.npy")
+test_input   = np.load("../data_preperation/wind_northward_preperationg/Output/Final_for_run/test_input.npy")
+test_target = np.load("../data_preperation/wind_northward_preperation/Output/Final_for_run/test_target.npy")
 
 ## Load model if pre-trained
 # dirs  = "../output/2023-03-25_13-56/L1_bs2_lr0.001/" 

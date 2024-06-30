@@ -28,8 +28,8 @@ model         = ResNetLayer(1, 64, 64, 1, conv=conv3x3, block=ResNetBasicBlock, 
 #If change 64 to 32 -> decrease feature maps (sort of nodes), worse performance but quicker, n = depth. -> lower. FInd sweet spot
 """  Training  """
 # Load data  
-train_input  = np.load("../../Wind_speed_Preprocessing/Output/Final_for_run/train_input.npy")
-train_target = np.load("../../Wind_speed_Preprocessing/Output/Final_for_run/train_target.npy")
+train_input  = np.load("../data_preperation/wind_speed_preperation/Output/Final_for_run/train_input.npy")
+train_target = np.load("../data_preperation/wind_speed_preperation/Output/Final_for_run/train_target.npy")
 
 train_input_bag     = prepare_data(train_input, train_target)
 
@@ -48,8 +48,8 @@ save_model(model, dirs)
 
 """  Inference  """  
 # Load data for inference
-test_input   = np.load("../../Wind_speed_Preprocessing/Output/Final_for_run/test_input.npy")
-test_target = np.load("../../Wind_speed_Preprocessing/Output/Final_for_run/test_target.npy")
+test_input   = np.load("../data_preperation/wind_speed_preperation/Output/Final_for_run/test_input.npy")
+test_target = np.load("../data_preperation/wind_speed_preperation/Output/Final_for_run/test_target.npy")
 
 ## Load model if pre-trained
 # dirs  = "../output/2023-03-25_13-56/L1_bs2_lr0.001/" 

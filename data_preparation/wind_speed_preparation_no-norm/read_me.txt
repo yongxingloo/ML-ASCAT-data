@@ -1,0 +1,1 @@
+This function has been created in order to compare the output of the model with and without the normalisation step.
