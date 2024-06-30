@@ -1,3 +1,5 @@
+RUN AT 23:20 30.06.2024
+
 METOP-A Wind Data Preprocessing program
 start of preprocessing, running batch files
 

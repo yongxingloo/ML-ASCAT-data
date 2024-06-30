@@ -74,7 +74,6 @@ def splice_filter_pad_asc(file,angle,cutoff_percentage):
                     max_data = np.nanmax(all_windspeed_selection[k])
                     all_windspeed_selection[k] = (all_windspeed_selection[k] - min_data) / (max_data - min_data)
 
-                    k += 1
                     metadata_entries.append({
                         'latitude start': lat,
                         'latitude end': lat + range_angle,

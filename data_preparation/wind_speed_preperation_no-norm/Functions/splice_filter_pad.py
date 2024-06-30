@@ -68,15 +68,12 @@ def splice_filter_pad_asc(file,angle,cutoff_percentage):
                     rows, cols = all_windspeed_selection[k].shape
                     max_rows = max(max_rows, rows)
                     max_cols = max(max_cols, cols)
-                    #Creating hash unique ID
-                    hash = hash_array(all_windspeed_selection[k])
 
                     #Normalizing data REMOVED FROM THIS STEP
                     #min_data = np.nanmin(all_windspeed_selection[k])
                     #max_data = np.nanmax(all_windspeed_selection[k])
                     #all_windspeed_selection[k] = (all_windspeed_selection[k] - min_data) / (max_data - min_data)
 
-                    k += 1
                     metadata_entries.append({
                         'latitude start': lat,
                         'latitude end': lat + range_angle,
@@ -87,12 +84,19 @@ def splice_filter_pad_asc(file,angle,cutoff_percentage):
                         #'min': min_data,
                         #'max': max_data, 
                         'hash': hash
-                    })
+                   })
 
     
     print(k,' = total number considered')
     # Pad arrays with np.nan to make them all the same size
     dataset_separated = [np.pad(arr, ((0, max_rows - arr.shape[0]), (0, max_cols - arr.shape[1])), 'constant', constant_values=np.nan) for arr in dataset_separated]
+
+    # Compute hash values for the padded arrays
+    hash_values = [hash_array(item) for item in dataset_separated]
+
+    # Assuming metadata_entries is a list of dictionaries and you want to add hash values to each corresponding entry
+    for i, entry in enumerate(metadata_entries):
+        entry['hash'] = hash_values[i]
 
     #Convert metadata list to dataframe for export
     metadata = pd.DataFrame(metadata_entries)
@@ -152,8 +156,6 @@ def splice_filter_pad_des(file,angle,cutoff_percentage):
                     max_rows = max(max_rows, rows)
                     max_cols = max(max_cols, cols)
 
-                    #Creating hash unique ID
-                    hash = hash_array(all_windspeed_selection[k])
                     #Normalizing data 
                     #min_data = np.nanmin(all_windspeed_selection[k])
                     #max_data = np.nanmax(all_windspeed_selection[k])
@@ -168,12 +170,18 @@ def splice_filter_pad_des(file,angle,cutoff_percentage):
                         'source': 'des',  # Adjust 'SomeSource' as needed
                         #'min': min_data,
                         #'max': max_data,
-                        'hash': hash
                     })
 
     # Pad arrays with np.nan to make them all the same size
     dataset_separated = [np.pad(arr, ((0, max_rows - arr.shape[0]), (0, max_cols - arr.shape[1])), 'constant', constant_values=np.nan) for arr in dataset_separated]
 
+
+    # Compute hash values for the padded arrays
+    hash_values = [hash_array(item) for item in dataset_separated]
+    
+    # Assuming metadata_entries is a list of dictionaries and you want to add hash values to each corresponding entry
+    for i, entry in enumerate(metadata_entries):
+        entry['hash'] = hash_values[i]
 
     #Convert metadata list to dataframe for export
     metadata = pd.DataFrame(metadata_entries)

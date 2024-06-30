@@ -16,12 +16,19 @@ import os
 import traceback
 import numpy as np
 
+# Get the directory of the current file
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Change the current working directory to the directory of the current file
+os.chdir(current_dir)
+
+
 try:
     print('METOP-A Wind Data Preprocessing program')
     print('start of preprocessing, running batch files')
 
-    file_asc = '../data/cmems_obs-wind_glo_phy_my_l3-metopa-ascat-asc-0.125deg_P1D-i-2007_2021.nc'
-    file_des = '../data/cmems_obs-wind_glo_phy_my_l3-metopa-ascat-des-0.125deg_P1D-i-2007_2021.nc'
+    file_asc = '../../base_data/cmems_obs-wind_glo_phy_my_l3-metopa-ascat-asc-0.125deg_P1D-i-2007_2021.nc'
+    file_des = '../../base_data/cmems_obs-wind_glo_phy_my_l3-metopa-ascat-des-0.125deg_P1D-i-2007_2021.nc'
 
     print('\n-------------------------------------')
 
@@ -47,10 +54,6 @@ try:
     from Functions.plotting_data import plot_variables
     print('plotting ASC and DES')
 
-    # Ensure Plots directory exists
-    if not os.path.exists('./Plots'):
-        os.makedirs('./Plots')
-
     # Call the plot_variables function with verbose logging
     print(f"Calling plot_variables for {file_asc}")
     plot_variables(file_asc, 0)
@@ -64,6 +67,7 @@ try:
     ############################################
 
     from Functions.splice_filter_pad import splice_filter_pad_asc, splice_filter_pad_des
+
 
     print('splicing, filtering and padding ASC and DES')
     splice_filter_pad_asc(file_asc,5,30)
@@ -182,6 +186,17 @@ try:
     split(features, targets,0.2)
 
     print('run done :)')
+
+    ############################################
+    print('duplicate check')
+    from Functions.duplicate_check import has_duplicates
+
+    train_input = np.load("./Output/Final_for_run/train_input.npy")
+    test_input = np.load("./Output/Final_for_run/test_input.npy")
+
+    merged_for_check = np.concatenate((train_input, test_input), axis=0)
+    has_duplicates(merged_for_check)
+    print('True = duplicates found, False = duplicates missing')
 
     ############################################
     print('\n-------------------------------------')

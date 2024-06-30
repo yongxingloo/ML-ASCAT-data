@@ -1,0 +1,139 @@
+RUN AT 23:37 30.06.2024
+
+METOP-A Wind Data Preprocessing program
+start of preprocessing, running batch files
+
+-------------------------------------
+file to import (1): ../../base_data/cmems_obs-wind_glo_phy_my_l3-metopa-ascat-asc-0.125deg_P1D-i-2007_2021.nc
+file to import (2): ../../base_data/cmems_obs-wind_glo_phy_my_l3-metopa-ascat-des-0.125deg_P1D-i-2007_2021.nc
+
+-------------------------------------
+metadata ASC
+Dataset loaded successfully.
+
+Summary of the dataset:
+<xarray.Dataset> Size: 281MB
+Dimensions:           (time: 366, latitude: 120, longitude: 160)
+Coordinates:
+  * latitude          (latitude) float32 480B 5.062 5.188 5.312 ... 19.81 19.94
+  * longitude         (longitude) float32 640B -64.94 -64.81 ... -45.19 -45.06
+  * time              (time) datetime64[ns] 3kB 2020-01-01 ... 2020-12-31
+Data variables:
+    wind_divergence   (time, latitude, longitude) float64 56MB ...
+    measurement_time  (time, latitude, longitude) float64 56MB ...
+    eastward_wind     (time, latitude, longitude) float64 56MB ...
+    northward_wind    (time, latitude, longitude) float64 56MB ...
+    wind_speed        (time, latitude, longitude) float64 56MB ...
+Attributes: (12/30)
+    Conventions:                       CF-1.6
+    comment:                           Orbit period and inclination are const...
+    contents:                          ovw
+    creation_date:                     2023-10-11
+    creation_time:                     01:47:38
+    equator_crossing_date:             2023-06-29
+    ...                                ...
+    start_time:                        00:00:00
+    stop_date:                         2023-06-30
+    stop_time:                         23:59:58
+    title:                             Global Ocean - Wind - METOP-B ASCAT - ...
+    title_short_name:                  ASCATB-L3-Coastal
+    copernicus_marine_client_version:  0.10.6
+
+-------------------------------------
+metadata DES
+Dataset loaded successfully.
+
+Summary of the dataset:
+<xarray.Dataset> Size: 281MB
+Dimensions:           (time: 366, latitude: 120, longitude: 160)
+Coordinates:
+  * latitude          (latitude) float32 480B 5.062 5.188 5.312 ... 19.81 19.94
+  * longitude         (longitude) float32 640B -64.94 -64.81 ... -45.19 -45.06
+  * time              (time) datetime64[ns] 3kB 2020-01-01 ... 2020-12-31
+Data variables:
+    wind_divergence   (time, latitude, longitude) float64 56MB ...
+    measurement_time  (time, latitude, longitude) float64 56MB ...
+    eastward_wind     (time, latitude, longitude) float64 56MB ...
+    northward_wind    (time, latitude, longitude) float64 56MB ...
+    wind_speed        (time, latitude, longitude) float64 56MB ...
+Attributes: (12/30)
+    Conventions:                       CF-1.6
+    comment:                           Orbit period and inclination are const...
+    contents:                          ovw
+    creation_date:                     2023-10-11
+    creation_time:                     01:47:38
+    equator_crossing_date:             2023-06-29
+    ...                                ...
+    start_time:                        00:00:00
+    stop_date:                         2023-06-30
+    stop_time:                         23:59:58
+    title:                             Global Ocean - Wind - METOP-B ASCAT - ...
+    title_short_name:                  ASCATB-L3-Coastal
+    copernicus_marine_client_version:  0.10.6
+done:)
+
+-------------------------------------
+plotting ASC and DES
+Calling plot_variables for ../../base_data/cmems_obs-wind_glo_phy_my_l3-metopa-ascat-asc-0.125deg_P1D-i-2007_2021.nc
+1/2 :)
+Calling plot_variables for ../../base_data/cmems_obs-wind_glo_phy_my_l3-metopa-ascat-des-0.125deg_P1D-i-2007_2021.nc
+2/2 :)
+done :)
+
+-------------------------------------
+splicing, filtering and padding ASC and DES
+365  = total number considered
+run done
+1/2
+run done
+2/2
+
+-------------------------------------
+plotting 100 random images ASC and DES
+run done
+1/2
+run done
+2/2
+
+-------------------------------------
+plotting 100 random images ASC and DES without nan values and creating files
+run done
+1/2
+run done
+2/2
+
+-------------------------------------
+creating dataset with holes ASC and DES
+1/2
+run done :)
+2/2
+run done :)
+
+-------------------------------------
+plotting 100 random images ASC and DES
+run done
+1/2
+run done
+2/2
+
+-------------------------------------
+merging the ASC and DES datasets.
+(375, 41, 41) = shape of normal_asc
+(375, 41, 41) = shape of normal_des
+merging the normal datasets.
+(750, 41, 41) = shape of normal merged dataset
+(375, 41, 41) = shape of holes_asc
+(375, 41, 41) = shape of holes_des
+merging the merged holes dataset.
+(750, 41, 41) = shape of holes merged dataset
+metadata of the merged dataset:
+(375, 9) = shape of metadata_asc
+(375, 9) = shape of metadata_des
+run done :)
+
+-------------------------------------
+splitting the dataset into training and testing sets
+run done :)
+duplicate check
+false
+True = duplicates found, False = duplicates missing

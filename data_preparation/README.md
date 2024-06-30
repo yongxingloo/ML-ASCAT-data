@@ -1,7 +1,5 @@
-It is recommended to run the preprocessing on the cluster. Ensure to have the dataset for the ascending path in a folder called "data" in the current directory.
-The files are called with the names :
+All outputs of the run has been kept (using the subset data). Therefore, it is possible to just read the .npy output files without re-running
 
-cmems_obs-wind_glo_phy_my_l3-metopa-ascat-asc-0.125deg_P1D-i-2007_2021.nc
-cmems_obs-wind_glo_phy_my_l3-metopa-ascat-des-0.125deg_P1D-i-2007_2021.nc
-
-in line 23 of run.py , change name if needed.
+If running is desired, then :
+-> run.py for the desired file to run the preprocessing pipeline. 
+-> this will generate all outputs and plots in the desired paths for the model.

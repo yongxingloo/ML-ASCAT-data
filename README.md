@@ -18,7 +18,7 @@ infilling algorithms used today. In testing two model
 architectures, the ResNET and the UNET, it is found
 that the ResNET produces a mean absolute error that is
 half of what is found using krigging (MAE = 0.0316 m/s
-> MAE = 0.0163 m/s) whilst outperforming it in terms
+bigger than MAE = 0.0163 m/s) whilst outperforming it in terms
 of processing time, it is also found that the U-NET can
 achieve the same results as the conventional method
 whilst only requiring 1/4 of the processing time. A key
@@ -39,6 +39,13 @@ For preprocessing :
 
 
 Running preprocessing :
+
+    Variables to choose :
+    1. wind speed
+    2. wind speed (that is not normalised)
+    2. wind (u, eastward)
+    3. wind (v, northward)
+    4. wind divergence
 
     ->Enter folder ./data_preperation/
     ->Enter folder of desired variable preprocessing 
