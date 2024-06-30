@@ -1,0 +1,12 @@
+The files included in the Github repository are a subset (2x125mb) of the full 2007-2020 ASCAT dataset (2x25gb)
+
+The names of the files are :
+cmems_obs-wind_glo_phy_my_l3-metopa-ascat-asc-0.125deg_P1D-i-2007_2021.nc (ascending path)
+cmems_obs-wind_glo_phy_my_l3-metopa-ascat-des-0.125deg_P1D-i-2007_2021.nc (descending path)
+
+The full files can be extracted at the following source: 
+
+1. https://navigator.eumetsat.int/product/EO:EUM:DAT:METOP:OSI-150-B
+2. https://eoportal.eumetsat.int/
+
+Note that it is recommended to run the codes on a compute cluster if using the full files.
